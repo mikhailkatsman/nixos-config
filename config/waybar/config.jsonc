@@ -1,0 +1,99 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", 
+    "position": "top", 
+    "height": 18,
+    "margin-top": 8,
+    "margin-left": 8,
+    "margin-right": 8,
+    "spacing": 2, 
+
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/sep",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "custom/sep",
+        "memory",
+        "custom/sep",
+        "disk",
+        "custom/sep",
+        "network",
+        "wireplumber",
+        "battery"
+    ],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*" : 6
+        }
+    },
+    "hyprland/window" : {
+        "max-length": 60,
+        "seperate-outputs": false
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 6
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        "format-alt": "{:%d-%m-%Y}"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "CPU: {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 2,
+        "format": "Mem: {used}GiB"
+    },
+    "disk": {
+        "interval": 60,
+        "path": "/",
+        "format": "Disk: {free}"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 25,
+            "critical": 10
+        },
+        "format": "{icon}",
+        "format-plugged": "",
+        "format-alt": "{capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "wireplumber": {
+        "format": "{icon}",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "format-muted": "",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        "interval": 5,
+        "format-ethernet": "",
+        "format-wifi": "",
+        "format-disconnected": "⚠"
+    },
+    "custom/sep": {
+        "format" : "|",
+        "interval" : 0
+    }
+}

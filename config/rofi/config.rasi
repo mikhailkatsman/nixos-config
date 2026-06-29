@@ -1,0 +1,95 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 9";
+    show-icons: true;
+    case-sensitive: false;
+    drun-display-format: "{name}";
+    hover-select: true;
+}
+
+* {
+    separatorcolor: transparent;
+    width: 20%; 
+    height: 37%;
+    background: rgba ( 0, 0, 0, 70 % );
+    foreground: rgba ( 248, 248, 242, 100 % );
+    normal-foreground: @foreground;
+    normal-background: @background;
+}
+
+window {
+    background-color: @background;
+    border: none;
+    border-radius: 12px;
+}
+
+inputbar {
+    margin: 0px 12px;
+    border: 0 0 1px 0;
+    border-color: @foreground;
+    children: [entry];
+}
+
+entry {
+    placeholder: "Search...";
+    padding: 12px 0px;
+    color: @foreground;
+}
+
+listview {
+  cycle: false;
+  margin: 12px;
+  background-color: transparent;
+  scrollbar: false;
+}
+
+element {
+    padding: 12px 6px;
+    spacing: 12px;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align: 0.5;
+    font: "JetBrainsMono Nerd Font 11";
+}
+element-icon {
+    size: 40px;
+}
+element.normal.normal {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element.normal.urgent {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element.normal.active {
+    background-color: transparent;
+    text-color:       @foreground;
+    border-color:     @foreground;
+}
+element.selected.normal {
+    background-color: transparent;
+    text-color:       @foreground;
+    border: 1px;
+}
+element.selected.urgent {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element.selected.active {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element.alternate.normal {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element.alternate.urgent {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+element.alternate.active {
+    background-color: transparent;
+    text-color:       @foreground;
+}
