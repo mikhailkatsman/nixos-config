@@ -21,6 +21,23 @@
 
   programs.zsh = {
     enable = true;
+    interactiveShellInit = builtins.readFile ./config/zsh/zshrc;
+    loginShellInit = builtins.readFile ./config/zsh/zprofile;
+    envExtra = builtins.readFile ./config/zsh/zshenv;
+    shellAliases = {
+		nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
+        ndg = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +4";
+	};
+    ohMyZsh = {
+        enable = true;
+        plugins = [
+            "git"
+            "docker"
+            "sudo"
+            "npm"
+            "history"
+        ];
+    };
   };
   users.defaultUserShell = pkgs.zsh;
 

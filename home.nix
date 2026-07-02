@@ -18,10 +18,6 @@
 
     programs.bash = {
 		enable = true;
-		shellAliases = {
-			nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
-            ndg = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +4";
-		};
 	};
 
     programs.ssh = {
