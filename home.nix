@@ -82,6 +82,9 @@
             cmp-buffer
             cmp-path
 
+            # Lspconfig
+            nvim-lspconfig
+
             # Nvim tree
             nvim-tree-lua
             nvim-web-devicons

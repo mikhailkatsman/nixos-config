@@ -14,17 +14,6 @@ vim.g.mapleader = " "
 
 -- LSP
 vim.lsp.enable({ "nixd", "lua_ls", "phpactor" })
-vim.lsp.config['nixd'] = {}
-vim.lsp.config['lua_ls'] = {
-  settings = {
-    Lua = {
-      diagnostics = { globals = { "vim" } },
-    },
-  },
-}
-vim.lsp.config['phpactor'] = {
-    cmd = { "phpactor", "language-server" },
-}
 
 -- Completion
 local cmp = require("cmp")
