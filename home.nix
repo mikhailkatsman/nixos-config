@@ -105,6 +105,7 @@
             fd
             ripgrep
             fzf
+            phpactor
         ];
     };
 
