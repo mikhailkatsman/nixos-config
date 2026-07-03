@@ -27,15 +27,9 @@
 	};
     ohMyZsh = {
         enable = true;
-        theme = "powerlevel10k/powerlevel10k";
-        plugins = [
-            "git"
-            "docker"
-            "sudo"
-            "npm"
-            "history"
-        ];
+        plugins = [ "git" "docker" "sudo" "npm" "history" ];     
     };
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
   };
   users.defaultUserShell = pkgs.zsh;
 
