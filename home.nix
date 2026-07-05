@@ -123,6 +123,7 @@
   	xdg.configFile."yazi".source = ./config/yazi;
   	xdg.configFile."waybar".source = ./config/waybar;
   	xdg.configFile."rofi".source = ./config/rofi;
+  	xdg.configFile."udiskie".source = ./config/udiskie;
 
     # enable Yazi as file picker
     xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''

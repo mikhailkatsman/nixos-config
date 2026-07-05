@@ -1,0 +1,5 @@
+program_options:
+  menu: flat
+  automount: true
+  terminal: 'yazi'
+quickmenu_actions: [terminal, delete]
