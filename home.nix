@@ -13,6 +13,7 @@
         grim
         slurp
         wl-clipboard
+        udiskie
         opencode
     ];
 

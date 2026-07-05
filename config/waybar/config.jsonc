@@ -25,6 +25,7 @@
         "custom/sep",
         "disk",
         "custom/sep",
+        "tray",
         "network",
         "wireplumber",
         "battery"

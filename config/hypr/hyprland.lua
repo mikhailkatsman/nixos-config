@@ -11,7 +11,7 @@ hl.env("GBM_BACKEND", "nvidia-drm")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
 hl.on("hyprland.start", function ()
-    hl.exec_cmd("hyprpaper & waybar")
+    hl.exec_cmd("hyprpaper & waybar & udiskie --smart-tray --open \"foot -e yazi\"")
 end)
 
 local mod = "SUPER"
