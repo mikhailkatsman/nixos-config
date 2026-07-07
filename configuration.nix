@@ -37,7 +37,7 @@
     users.users.misha = {
         isNormalUser = true;
         description = "Misha";
-        extraGroups = [ "wheel" "networkmanager" "video" "mysql" ];
+        extraGroups = [ "wheel" "networkmanager" "video" "mysql" "docker" "docker-compose" ];
         packages = with pkgs; [ tree ];
     };
 
@@ -87,6 +87,8 @@
         vanilla-dmz
         php85
         php85Packages.composer
+        docker
+        docker-compose
     ];
 
     fonts.packages = with pkgs; [
@@ -110,6 +112,8 @@
     };
 
     security.polkit.enable = true;
+
+    virtualisation.docker.enable = true;
 
     system.stateVersion = "26.05";
 }

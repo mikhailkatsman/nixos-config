@@ -115,6 +115,32 @@
 
     programs.waybar.enable = true;
 
+    systemd.user.services.hyprpaper = {
+        Install.WantedBy = ["default.target"];
+        Service = {
+            ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
+            Restart = "on-failure";
+            RestartSec = 2;
+        };
+        Unit = {
+            Description = "Hyprland wallpaper daemon";
+            PartOf = ["default.target"];
+        };
+    };
+
+    systemd.user.services.udiskie = {
+        Install.WantedBy = ["default.target"];
+        Service = {
+            ExecStart = "${pkgs.udiskie}/bin/udiskie";
+            Restart = "on-failure";
+            RestartSec = 2;
+        };
+        Unit = {
+            Description = "udiskie automount daemon";
+            PartOf = ["default.target"];
+        };
+    };
+
 	xdg.configFile."hypr".source = ./config/hypr;
   	xdg.configFile."opencode/opencode.jsonc".source = ./config/opencode/opencode.jsonc;
   	xdg.configFile."opencode/tui.json".source = ./config/opencode/tui.json;

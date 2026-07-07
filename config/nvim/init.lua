@@ -37,7 +37,16 @@ require("nvim-treesitter").setup({
 
 require("nvim-autopairs").setup()
 
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+    filters = {
+        dotfiles = false,
+        custom = {}
+    },
+    git = {
+        enable = true,
+        ignore = false
+    }
+})
 
 local function grep_from_files()
   require("fzf-lua").live_grep()
