@@ -23,6 +23,7 @@
         enable = true;
         shellAliases = {
 		    nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
+            nrsu = "sudo nix flake update /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos";
             ndg = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +4";
 	    };
         ohMyZsh = {
@@ -65,6 +66,10 @@
         };
     };
 
+    services.tailscale = {
+        enable = true;
+    };
+
     services.mysql = {
         enable = true;
         package = pkgs.mysql84;
@@ -87,8 +92,10 @@
         vanilla-dmz
         php85
         php85Packages.composer
+        python3
         docker
         docker-compose
+        qrencode
     ];
 
     fonts.packages = with pkgs; [
