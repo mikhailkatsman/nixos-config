@@ -3,6 +3,7 @@
 {
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+    boot.kernelParams = [ "quiet" ];
 
     networking.networkmanager.enable = true;
 
@@ -38,7 +39,7 @@
     users.users.misha = {
         isNormalUser = true;
         description = "Misha";
-        extraGroups = [ "wheel" "networkmanager" "video" "mysql" "docker" "docker-compose" ];
+        extraGroups = [ "wheel" "networkmanager" "video" "mysql" "docker" "docker-compose" "dialout" "uucp" ];
         packages = with pkgs; [ tree ];
     };
 
@@ -75,6 +76,7 @@
         package = pkgs.mysql84;
     };
 
+    services.upower.enable = true;
 
     services.udisks2.enable = true;
 

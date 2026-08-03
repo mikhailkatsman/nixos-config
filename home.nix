@@ -15,6 +15,7 @@
         wl-clipboard
         udiskie
         opencode
+        google-chrome
     ];
 
     programs.bash = {
