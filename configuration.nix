@@ -85,6 +85,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+        xrandr
         git
         wget
         vim
