@@ -16,6 +16,7 @@
         udiskie
         opencode
         google-chrome
+        thunderbird
     ];
 
     programs.bash = {
