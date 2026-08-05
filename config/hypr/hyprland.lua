@@ -24,6 +24,7 @@ hl.bind(mod .. " + b", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + Tab", hl.dsp.exec_cmd("foot yazi"))
 hl.bind(mod .. " + Space", hl.dsp.exec_cmd("rofi -show drun -show-power-menu"))
 hl.bind(mod .. " + o", hl.dsp.exec_cmd("foot -e opencode"))
+hl.bind(mod .. " + m", hl.dsp.exec_cmd("thunderbird"))
 
 hl.bind(mod .. " + minus", hl.dsp.focus({ workspace = "prev" }))
 hl.bind(mod .. " + equal", hl.dsp.focus({ workspace = "next" }))
@@ -63,7 +64,7 @@ hl.config({ general = { gaps_in = 4 } })
 hl.config({ general = { gaps_out = 8 } })
 
 hl.window_rule({
-    match = { class = "^(steam|google-chrome|firefox)$" },
+    match = { class = "^(steam|google-chrome|firefox|thunderbird)$" },
     opacity = "1 override"
 })
 hl.window_rule({
