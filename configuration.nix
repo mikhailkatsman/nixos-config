@@ -96,6 +96,7 @@
         php85
         php85Packages.composer
         python3
+        gnumake
         docker
         docker-compose
         qrencode
