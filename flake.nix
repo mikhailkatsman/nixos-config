@@ -30,6 +30,7 @@
     in {
         nixosConfigurations = {
             nixos-thinkpad = mkSystem "thinkpad";
+            nixos-framework = mkSystem "framework";
         };
     };
 }
