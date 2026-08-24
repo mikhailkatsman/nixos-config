@@ -93,7 +93,7 @@
         brightnessctl
         rofi
         vanilla-dmz
-        php85
+        (php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis ]))
         php85Packages.composer
         python3
         gnumake
