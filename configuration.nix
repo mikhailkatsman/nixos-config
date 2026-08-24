@@ -3,7 +3,7 @@
 {
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelParams = [ "quiet" ];
+    boot.kernelParams = [ "quiet" "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
 
     networking.networkmanager.enable = true;
 
