@@ -104,6 +104,22 @@
         docker
         docker-compose
         qrencode
+        pv
+
+        /* Custom packages */
+        (pkgs.stdenv.mkDerivation rec {
+            version = "0.3.3";
+            pname = "cx";
+            src = pkgs.fetchurl {
+                url = "https://s3.amazonaws.com/downloads.cloud66.com/cx/${pname}_${version}_linux_amd64.tar.gz";
+                sha256 = "1gsy7qn54pyis133a1kzjbx2mgw5xjarpippwpzz96y1lb6wflgm";
+            };
+            sourceRoot = "${pname}_${version}_linux_amd64";
+            dontStrip = true;
+            installPhase = ''
+                install -Dm755 cx $out/bin/cx
+            '';
+        })
     ];
 
     fonts.packages = with pkgs; [
