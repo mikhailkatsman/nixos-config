@@ -61,7 +61,7 @@ hl.config({ general = { gaps_in = 4 } })
 hl.config({ general = { gaps_out = 8 } })
 
 hl.window_rule({
-    match = { class = "^(steam|google-chrome|firefox|thunderbird)$" },
+    match = { class = "^(steam|google-chrome|firefox|thunderbird|slack)$" },
     opacity = "1 override"
 })
 hl.window_rule({
