@@ -61,13 +61,17 @@
         enable = true;
         settings = {
             default_session = {
-                command = "${pkgs.tuigreet}/bin/tuigreet -c start-hyprland -r --user-menu --theme \"background=#282a36;text=#f8f8f2;prompt=#bd93f9;input=#f8f8f2;action=#ff79c6;button=#44475a\""
-                ;user = "greeter";
+                command = "${pkgs.tuigreet}/bin/tuigreet -c start-hyprland -r --user-menu --theme \"background=#282a36;text=#f8f8f2;prompt=#bd93f9;input=#f8f8f2;action=#ff79c6;button=#44475a\"";
+                user = "greeter";
             };
         };
     };
 
     services.tailscale = {
+        enable = true;
+    };
+
+    services.fprintd = {
         enable = true;
     };
 
@@ -122,7 +126,10 @@
         MOZ_WAYLAND = 1;
     };
 
-    security.polkit.enable = true;
+    security = {
+        pam.services.greetd.fprintAuth = true;
+        polkit.enable = true;
+    };
 
     virtualisation.docker.enable = true;
 

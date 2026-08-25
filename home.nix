@@ -17,6 +17,7 @@
         opencode
         google-chrome
         thunderbird
+        slack
     ];
 
     programs.bash = {
