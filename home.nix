@@ -36,10 +36,6 @@
         };
     };
 
-    programs.fnm = {
-        enable = true;
-    };
-
 	programs.git = {
 		enable = true;
         settings = {

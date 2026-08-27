@@ -105,6 +105,7 @@
         docker-compose
         qrencode
         pv
+        fnm
 
         /* Custom packages */
         (pkgs.stdenv.mkDerivation rec {
