@@ -6,6 +6,7 @@ hl.monitor({
 })
 
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("gammastep -l 51.5:-0.13 -t6500:3200")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("waybar")
     hl.exec_cmd("udiskie")
@@ -31,11 +32,11 @@ hl.bind(mod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + j", hl.dsp.focus({ direction = "down" }))
 
 -- Region Select Screenshot
-hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | wl-copy"))
+hl.bind("F11", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | wl-copy"))
 -- Fullscreen Screenshot to clipboard
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grim - | wl-copy"))
+hl.bind("SHIFT + F11", hl.dsp.exec_cmd("grim - | wl-copy"))
 -- Region Select saved as PNG to Screenshots dir
-hl.bind("SUPER + Print", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind(mod .. " + F11", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
 
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
@@ -91,3 +92,5 @@ hl.animation({
     style = "popin 80%"
 })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, spring = "default" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, spring = "default", style = "popin 80%" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 3, spring = "default" })

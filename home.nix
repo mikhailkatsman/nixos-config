@@ -9,6 +9,7 @@
     home.packages = with pkgs; [
         foot
         hyprpaper
+        gammastep
         fastfetch
         grim
         slurp
@@ -33,6 +34,10 @@
                 IdentityFile = "~/.ssh/github";
             };
         };
+    };
+
+    programs.fnm = {
+        enable = true;
     };
 
 	programs.git = {
