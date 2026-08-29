@@ -155,17 +155,21 @@
   	xdg.configFile."rofi".source = ./config/rofi;
   	xdg.configFile."udiskie".source = ./config/udiskie;
 
-    # enable Yazi as file picker
-    xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
-        [filechooser]
-        cmd=yazi-wrapper.sh
-        create_help_file=0
-        default_dir=$HOME
-        env=TERMCMD="${pkgs.foot}/bin/foot"
-        PATH=${pkgs.yazi}/bin:${pkgs.foot}/bin
-        open_mode=suggested
-        save_mode=last
-    '';
+    gtk = {
+        enable = true;
+        theme = {
+            name = "adw-gtk3";
+            package = pkgs.adw-gtk3;
+        };
+        iconTheme = {
+            name = "candy-icons";
+            package = pkgs.candy-icons;
+        };
+        font = {
+            name = "JetBrainsMono Nerd Font";
+        };
+        gtk3.extraCss = builtins.readFile ./config/gtk/gtk.css;
+    };
 
     xdg.mimeApps = {
         enable = true;

@@ -50,10 +50,10 @@
 
     xdg.portal = {
         enable = true;
-        extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
         config.hyprland = {
             default = [ "hyprland" ];
-            "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+            "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
         };
     };
 
@@ -90,6 +90,7 @@
 
     environment.systemPackages = with pkgs; [
         xrandr
+        btop
         git
         wget
         vim
@@ -122,6 +123,13 @@
             '';
         })
     ];
+
+    programs.nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+            fnm
+        ];
+    };
 
     fonts.packages = with pkgs; [
         noto-fonts

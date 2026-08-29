@@ -62,7 +62,7 @@ hl.config({ general = { gaps_in = 4 } })
 hl.config({ general = { gaps_out = 8 } })
 
 hl.window_rule({
-    match = { class = "^(steam|google-chrome|firefox|thunderbird|slack)$" },
+    match = { class = "^(steam|google-chrome|firefox|thunderbird|slack|xdg-desktop-portal-gtk)$" },
     opacity = "1 override"
 })
 hl.window_rule({
@@ -70,11 +70,10 @@ hl.window_rule({
     xray = true
 })
 hl.window_rule({
-    match = { title = "^(File Picker)$" },
-    xray = true,
+    match = { class = "xdg-desktop-portal-gtk" },
     float = true,
     center = true,
-    size = "40% 40%"
+    size = {800, 600}
 })
 
 hl.animation({
