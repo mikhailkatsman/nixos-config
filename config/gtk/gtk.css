@@ -1,1 +1,92 @@
-@import url("file:///home/misha/.gtk-playground.css");
+filechooser,
+filechooser * {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+headerbar {
+    background-color: #000000;
+    background-image: none;
+}
+
+headerbar entry {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+headerbar entry:focus {
+    border-color: #ffffff;
+}
+
+headerbar button.text-button {
+    background-color: #000000;
+}
+
+headerbar button.suggested-action {
+    background-color: #ff79c6;
+}
+
+headerbar label {
+    color: #ffffff;
+}
+
+filechooser placessidebar {
+    font-size: 14px;
+}
+
+filechooser paned > separator {
+    border-color: #222222;
+    border-right-style: solid;
+    border-right-width: 1px;
+    background-image: none;
+}
+
+filechooser revealer .vertical {
+    border-bottom-style: none;
+}
+
+filechooser actionbar revealer .horizontal {
+    border-color: #222222;
+}
+
+filechooser scrolledwindow treeview button {
+    border-color: #222222;
+}
+
+filechooser scrolledwindow overshoot,
+filechooser scrolledwindow undershoot {
+    background-color: transparent;
+}
+
+filechooser .view,
+filechooser .view:hover {
+    background-color: #000000;
+    background-image: none;
+    color: #ffffff;
+}
+
+filechooser .view:selected,
+filechooser .view:selected:focus {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+filechooser combobox,
+filechooser tooltip,
+filechooser menu {
+    background-color: #222222;
+    font-size: 11px;
+}
+
+filechooser revealer * {
+    min-height: 0;
+}
+
+filechooser .path-bar button label { font-size: 11px; }
+
+filechooser .path-bar button.slider-button:first-child image {
+    -gtk-icon-source: url("file:///etc/nixos/config/gtk/chevron-left.png");
+}
+filechooser .path-bar button.slider-button:last-child image {
+    -gtk-icon-source: url("file:///etc/nixos/config/gtk/chevron-right.png");
+}

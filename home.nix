@@ -50,6 +50,7 @@
         enable = true;
         profiles.misha = {
             settings = {
+                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                 "widget.use-xdg-desktop-portal.file-picker" = 1;
                 "media.ffmpeg.vaapi.enabled" = true;
                 "media.hardware-video-decoding.enabled" = true;
@@ -67,6 +68,12 @@
                 "browser.newtabpage.activity-stream.feeds" = false;
                 "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
             };
+            userChrome = ''
+                /* Global Firefox UI Font Modification */
+                * { 
+                    font-size: 12px !important; 
+                }
+            '';
         };
     };
 
