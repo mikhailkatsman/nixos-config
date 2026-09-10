@@ -24,8 +24,8 @@
         enable = true;
         shellAliases = {
 		    nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
-            nrsu = "sudo nix flake update /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos";
-            ndg = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +4";
+            nrsu = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos";
+            ndg = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +2";
 	    };
         ohMyZsh = {
             enable = true;
@@ -82,6 +82,11 @@
 
     services.upower.enable = true;
 
+    services.logind.settings.Login = {
+        HandleLidSwitch = "suspend";
+        HandleLidSwitchExternalPower = "suspend";
+    };
+
     services.udisks2.enable = true;
 
     programs.steam = {
@@ -97,9 +102,9 @@
         yazi
         brightnessctl
         rofi
-        vanilla-dmz
-        (php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis ]))
-        php85Packages.composer
+        vanilla-dmz     
+        (php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis all.xsl ]))
+        (php85Packages.composer.override { php = php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis all.xsl ]); })
         python3
         gnumake
         docker

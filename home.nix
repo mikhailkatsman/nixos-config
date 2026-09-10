@@ -117,10 +117,19 @@
             # Language servers
             nixd
             lua-language-server
+            phpactor
+            vtsls
+            (twig-language-server.overrideAttrs (prev: {
+              postInstall = (prev.postInstall or "") + ''
+                cp $out/lib/node_modules/tree-sitter-twig/tree-sitter-twig.wasm \
+                   $out/lib/packages/language-server/out/
+              '';
+            }))
+            vscode-langservers-extracted
+            tailwindcss-language-server
             fd
             ripgrep
             fzf
-            phpactor
         ];
     };
 

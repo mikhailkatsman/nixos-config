@@ -31,6 +31,12 @@ hl.bind(mod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + j", hl.dsp.focus({ direction = "down" }))
 
+for i = 1, 6 do 
+    hl.bind(mod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+end
+
+hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+
 -- Region Select Screenshot
 hl.bind("F11", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | wl-copy"))
 -- Fullscreen Screenshot to clipboard
@@ -74,6 +80,15 @@ hl.window_rule({
     float = true,
     center = true,
     size = {800, 600}
+})
+hl.window_rule({
+    name = "firefox-pip",
+    match = { title = "^Picture-in-Picture$" },
+    float = true,
+    pin = true,
+    border_size = 0,
+    keep_aspect_ratio = true,
+    size = {480, 270}
 })
 
 hl.animation({

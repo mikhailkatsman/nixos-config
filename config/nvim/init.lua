@@ -13,7 +13,28 @@ vim.opt.signcolumn = yes;
 vim.g.mapleader = " "
 
 -- LSP
-vim.lsp.enable({ "nixd", "lua_ls", "phpactor" })
+vim.lsp.config("*", {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
+-- Twig LS needs extensionPath for its bundled tree-sitter-twig.wasm
+local twig_exe = vim.fn.exepath("twig-language-server")
+vim.lsp.config("twig-language-server", {
+  cmd = { "twig-language-server", "--stdio" },
+  filetypes = { "twig" },
+  root_dir = function(bufnr, on_dir)
+    on_dir(vim.fs.root(bufnr, { "composer.json", ".git" }) or vim.fn.getcwd())
+  end,
+  init_options = {
+    extensionPath = vim.fs.dirname(vim.fs.dirname(twig_exe)) .. "/lib/packages/language-server",
+  },
+})
+vim.lsp.enable({
+  "nixd", "lua_ls", "phpactor",
+  "vtsls",
+  "twig-language-server",
+  "html", "cssls", "jsonls", "eslint",
+  "tailwindcss",
+})
 
 -- Completion
 local cmp = require("cmp")
@@ -30,9 +51,8 @@ cmp.setup({
 })
 
 -- Tree-sitter
-require("nvim-treesitter").setup({
-  highlight = { enable = true },
-  indent = { enable = true },
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function() pcall(vim.treesitter.start) end,
 })
 
 require("nvim-autopairs").setup()
