@@ -26,6 +26,8 @@
 		    nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
             nrsu = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos";
             ndg = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +2";
+            scan-pdf = "mkdir -p ~/Documents/scans && scanimage -d escl:https://192.168.1.108:443 --mode Color --resolution 300 --format=pdf -o ~/Documents/scans/scan-$(date +%F-%H%M).pdf";
+            scan-image = "mkdir -p ~/Pictures/scans && scanimage -d escl:https://192.168.1.108:443 --mode Color --resolution 600 --format=png -o ~/Pictures/scans/scan-$(date +%F-%H%M).png";
 	    };
         ohMyZsh = {
             enable = true;
@@ -89,6 +91,33 @@
 
     services.udisks2.enable = true;
 
+    services.printing = {
+        enable = true;
+        drivers = [ pkgs.epson-escpr2 ];
+    };
+
+    hardware.sane = {
+        enable = true;
+        extraBackends = [ pkgs.sane-airscan ];
+    };
+
+    services.avahi = {
+        enable = true;
+        openFirewall = true;
+    };
+
+    hardware.printers = {
+        ensurePrinters = [
+            {
+                name = "Epson_XP-6100";
+                location = "Home";
+                deviceUri = "socket://192.168.1.108:9100";
+                model = "epson-inkjet-printer-escpr2/Epson-XP-6100_Series-epson-escpr2-en.ppd";
+            }
+        ];
+        ensureDefaultPrinter = "Epson_XP-6100";
+    };
+
     programs.steam = {
         enable = true;
     };
@@ -103,8 +132,8 @@
         brightnessctl
         rofi
         vanilla-dmz     
-        (php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis all.xsl ]))
-        (php85Packages.composer.override { php = php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis all.xsl ]); })
+        (php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis all.xsl all.ffi ]))
+        (php85Packages.composer.override { php = php85.withExtensions ({ all, enabled }: enabled ++ [ all.redis all.xsl all.ffi ]); })
         python3
         gnumake
         docker

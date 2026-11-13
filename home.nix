@@ -8,6 +8,7 @@
 
     home.packages = with pkgs; [
         foot
+        gh
         hyprpaper
         gammastep
         fastfetch
@@ -19,7 +20,15 @@
         google-chrome
         thunderbird
         slack
+        godot_4_7
+        kdePackages.okular
+        imv
+        libreoffice-fresh
+        simple-scan
+        ffmpeg-headless
     ];
+
+    home.sessionVariables.SAL_USE_VCLPLUGIN = "gtk3";
 
     programs.bash = {
 		enable = true;
@@ -43,6 +52,7 @@
                 name = "mikhailkatsman";
 		        email = "kry3er@gmail.com";
             };
+            push.autoSetupRemote = true;
         };
 	};
 
@@ -67,6 +77,8 @@
                 "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
                 "browser.newtabpage.activity-stream.feeds" = false;
                 "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+                "pdfjs.disabled" = true;
+                "browser.helperApps.neverAsk.openFile" = "application/pdf";
             };
             userChrome = ''
                 /* Global Firefox UI Font Modification */
@@ -194,6 +206,21 @@
             "x-scheme-handler/https" = "firefox.desktop";
             "text/html" = "firefox.desktop";
             "application/xhtml+xml" = "firefox.desktop";
+            "application/pdf" = "org.kde.okular.desktop";
+            "application/x-pdf" = "org.kde.okular.desktop";
+            "image/png" = "imv.desktop";
+            "image/jpeg" = "imv.desktop";
+            "image/gif" = "imv.desktop";
+            "image/webp" = "imv.desktop";
+            "image/tiff" = "imv.desktop";
+            "image/bmp" = "imv.desktop";
+            "image/svg+xml" = "imv.desktop";
+            "application/msword" = "libreoffice-writer.desktop";
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "libreoffice-writer.desktop";
+            "application/vnd.ms-excel" = "libreoffice-calc.desktop";
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
+            "text/csv" = "libreoffice-calc.desktop";
+            "text/tab-separated-values" = "libreoffice-calc.desktop";
         };
     };
 

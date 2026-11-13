@@ -4,3 +4,9 @@ show_symlink = true
 sort_by = "size"
 sort_reverse = true
 linemode = "size"
+
+[open]
+prepend_rules = [
+  { mime = "text/csv", use = "open" },
+  { mime = "text/tab-separated-values", use = "open" },
+]

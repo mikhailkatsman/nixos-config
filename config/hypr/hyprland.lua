@@ -54,8 +54,6 @@ for i = 1, 5 do
     hl.bind(mod .. " + " .. i, hl.dsp.focus({ workspace = i }))
 end 
 
-hl.config({ decoration = { active_opacity = 0.7 } })
-hl.config({ decoration = { inactive_opacity = 0.4 } })
 hl.config({ decoration = { rounding = 12 } })
 
 hl.config({ decoration = { shadow = { range = 10 } } })
@@ -68,8 +66,8 @@ hl.config({ general = { gaps_in = 4 } })
 hl.config({ general = { gaps_out = 8 } })
 
 hl.window_rule({
-    match = { class = "^(steam|google-chrome|firefox|thunderbird|slack|xdg-desktop-portal-gtk)$" },
-    opacity = "1 override"
+    match = { class = "^(foot|footclient|rofi)$" },
+    opacity = "0.7 override 0.4 override"
 })
 hl.window_rule({
     match = { class = "rofi" },
