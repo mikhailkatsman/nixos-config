@@ -82,7 +82,16 @@
         package = pkgs.mysql84;
     };
 
-    services.upower.enable = true;
+    services.upower = {
+        enable = true;
+        criticalPowerAction = "PowerOff";
+        percentageLow = 20;
+        percentageCritical = 10;
+        percentageAction = 5;
+    };
+
+    # upowerd is only D-Bus-activated and nothing keeps it running; start it at boot.
+    systemd.services.upower.wantedBy = [ "multi-user.target" ];
 
     services.logind.settings.Login = {
         HandleLidSwitch = "suspend";
